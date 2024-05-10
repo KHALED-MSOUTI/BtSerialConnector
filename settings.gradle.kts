@@ -9,6 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+
     }
 }
 dependencyResolutionManagement {
@@ -20,6 +21,7 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "BtSerialConnector"
 include(":app")
-include(":BtSerialConnectorLib")
+include(":BtSerialConnector")

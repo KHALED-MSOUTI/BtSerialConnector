@@ -44,3 +44,7 @@ dependencies {
     implementation(libs.rxjava)
     implementation(libs.rxandroid)
 }
+
+afterEvaluate {
+
+}
