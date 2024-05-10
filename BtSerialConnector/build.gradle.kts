@@ -61,7 +61,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.KHALED-MSOUTI"
             artifactId = "BtSerialConnector"
-            version = "V1.0.1-beta.6"
+            version = "v1.0.0-beta.9"
             pom {
                 description.set("DESCRIPTION")
             }
