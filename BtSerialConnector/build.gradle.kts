@@ -1,10 +1,25 @@
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()            // << --- ADD This
+    }
+
+    dependencies {
+        classpath ("com.android.tools.build:gradle:7.1.3")
+        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+    }
+}
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
+
 }
 
 android {
-    namespace = "com.oetech.btserialconnectorlib"
+    namespace = "com.oetech.btserialconnector"
     compileSdk = 34
 
     defaultConfig {
@@ -32,6 +47,11 @@ android {
     }
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)        // << --- ADD This
+    }
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -45,6 +65,6 @@ dependencies {
     implementation(libs.rxandroid)
 }
 
-afterEvaluate {
 
-}
+
+
