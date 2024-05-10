@@ -1,16 +1,4 @@
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()            // << --- ADD This
-    }
-
-    dependencies {
-        classpath ("com.android.tools.build:gradle:7.1.3")
-        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
-    }
-}
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -35,7 +23,10 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+
             )
+            consumerProguardFiles ("proguard-rules.pro")
+            consumerProguardFiles ("consumer-rules.pro")       // << --- ADD This
         }
     }
     compileOptions {
@@ -47,11 +38,40 @@ android {
     }
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()            // << --- ADD This
+    }
+
+    dependencies {
+        classpath ("com.android.tools.build:gradle:7.1.3")
+        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+    }
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)        // << --- ADD This
     }
 }
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.KHALED-MSOUTI"
+            artifactId = "BtSerialConnector"
+            version = "V1.0.1-beta.6"
+            pom {
+                description.set("DESCRIPTION")
+            }
+        }
+    }
+    repositories {               // << --- ADD This
+        mavenLocal()
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
