@@ -4,5 +4,4 @@ before_install:
   -/scripts/prepareJitpackEnvironment.sh
 install:
 - FILE="-Dfile=BtSerialConnector-release.aar"
-- mvn instalWinstall-file $FILE -DgroupId=com.github.KHALED-MSOUTI -DartifactId=BtSerialConnector -Dversion=v1.0.0-beta.5
-  -packaging=aar -DgeneratePom=true
+- mvn instalWinstall-file $FILE -DgroupId=com.github.KHALED-MSOUTI -DartifactId=BtSerialConnector -Dversion=v1.0.0-beta.5 -packaging=aar -DgeneratePom=true
